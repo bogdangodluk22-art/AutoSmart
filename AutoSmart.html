@@ -1621,6 +1621,85 @@
 </head>
 <body>
 
+<!-- ── MOBILE BLOCK OVERLAY ── -->
+<div id="mobile-block" style="
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #0d0d0f;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 32px;
+  font-family: 'Barlow', sans-serif;
+">
+  <svg width="160" height="90" viewBox="0 0 160 90" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:32px;opacity:0.9">
+    <!-- Car body -->
+    <path d="M20 58 Q22 42 45 38 L60 30 Q72 24 90 24 Q108 24 120 30 L135 38 Q148 42 150 58 L150 66 Q150 70 146 70 L134 70 Q133 76 128 76 Q123 76 122 70 L48 70 Q47 76 42 76 Q37 76 36 70 L24 70 Q20 70 20 66 Z" fill="#1a1a1a" stroke="#e8001e" stroke-width="1.5"/>
+    <!-- Windshield -->
+    <path d="M62 36 L55 54 L115 54 L108 36 Q100 28 90 28 Q78 28 62 36 Z" fill="#0d1a2a" stroke="#2a4a7a" stroke-width="1"/>
+    <!-- Front window -->
+    <path d="M108 36 L102 54 L115 54 Z" fill="#0d1a2a" stroke="#2a4a7a" stroke-width="0.8"/>
+    <!-- Rear window -->
+    <path d="M62 36 L58 54 L68 54 Z" fill="#0d1a2a" stroke="#2a4a7a" stroke-width="0.8"/>
+    <!-- Wheels -->
+    <circle cx="42" cy="70" r="12" fill="#111" stroke="#e8001e" stroke-width="2"/>
+    <circle cx="42" cy="70" r="5" fill="#1a1a1a" stroke="#e8001e" stroke-width="1.5"/>
+    <circle cx="128" cy="70" r="12" fill="#111" stroke="#e8001e" stroke-width="2"/>
+    <circle cx="128" cy="70" r="5" fill="#1a1a1a" stroke="#e8001e" stroke-width="1.5"/>
+    <!-- Headlight -->
+    <ellipse cx="148" cy="54" rx="5" ry="4" fill="#e8001e" opacity="0.8"/>
+    <!-- Glow under car -->
+    <ellipse cx="85" cy="82" rx="55" ry="5" fill="#e8001e" opacity="0.12"/>
+  </svg>
+
+  <div style="
+    color: #e8001e;
+    font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 14px;
+  ">DESKTOP ONLY</div>
+
+  <div style="
+    font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #f0f0f0;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  ">AUTOSMART<br>для великого<br>екрану</div>
+
+  <div style="
+    color: rgba(240,240,240,0.45);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 280px;
+  ">Платформа оптимізована для десктопу.<br>Відкрийте AutoSmart на комп'ютері,<br>щоб отримати повний доступ.</div>
+</div>
+
+<script>
+  (function() {
+    var BREAKPOINT = 1024;
+    function checkMobile() {
+      var el = document.getElementById('mobile-block');
+      if (!el) return;
+      if (window.innerWidth < BREAKPOINT) {
+        el.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      } else {
+        el.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    }
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+  })();
+</script>
+
   <div id="cursor"></div>
   <div id="cursor-ring"></div>
 
